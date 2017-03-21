@@ -1,0 +1,34 @@
+﻿@*@model WebApi2.Models.Recommend*@
+
+@{
+    ViewBag.Title = "Recommended Music";
+}
+
+<h2>Search</h2>
+
+
+    @Html.AntiForgeryToken()
+
+   @using (Html.BeginForm("ShowRecommend", "ApiTest", FormMethod.Get))
+   {
+    <p>
+       
+        <div class="form-group">
+            Artist name: @Html.TextBox("searchString")
+        </div>
+        <div class="form-group"> 
+            Genre: @Html.TextBox("searchGenre")
+        </div>
+        
+        <div>
+            <input type="submit" value="Search" />
+        </div>
+
+      
+    </p>
+   }
+ 
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
